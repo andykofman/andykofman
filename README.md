@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Courier+Prime&weight=600&size=28&duration=2800&pause=2000&color=00FF00&center=true&vCenter=true&repeat=true&width=940&lines=SYSTEM.INITIALIZE()+//+AHMED+ALI" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Courier+Prime&size=28&duration=2800&pause=2000&color=777777&center=true&vCenter=true&width=940&lines=SYSTEM.INITIALIZE()+//+AHMED+ALI" alt="Typing SVG" />
 </div>
 <div align="center">
   <code>AI ENGINEER | SYSTEM ARCHITECT</code>
