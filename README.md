@@ -27,6 +27,7 @@
 
   <img width="390" src="https://github-readme-stats.vercel.app/api?username=andykofman&theme=dark&border_radius=0&hide_border=true&title_color=00ff00&text_color=00ff00&icon_color=00ff00" alt="GitHub Stats" />
 
+
 <div align="center">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=andykofman&theme=react-dark&hide_border=true&bg_color=000000&line=006600&point=008800&color=00aa00&title_color=008800&area=true" alt="Activity Graph" />
 </div>
