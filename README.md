@@ -12,7 +12,7 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 <div align="center">
-  <img src="/Assets/Animation.gif" alt="Cyber Console" />
+  <img src="https://raw.githubusercontent.com/andykofman/andykofman/main/Assets/Animation.gif" alt="Cyber Console" width="800" />
 </div>
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
