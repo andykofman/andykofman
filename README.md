@@ -37,8 +37,3 @@
   <code>END_TRANSMISSION // © 2024</code>
 </div>
 
-
-
-<div align="center">
-  <code>AI ENGINEER | SYSTEM ARCHITECT</code>
-</div>
