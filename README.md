@@ -35,6 +35,25 @@
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+
+
+<div align="center">
+  <img src="https://profile-counter.glitch.me/{andykofman}/count.svg" alt="Visitor Count" style="filter: hue-rotate(90deg) brightness(0.8);" />
+</div>
+
+
+
+
+
+<div align="center">
+<pre style="color: #00ff00;">
+╔══════════════════════════════════════════════════════════════════╗
+║                                                                  ║
+║                <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=15&duration=3000&pause=1000&color=00FF00&center=true&vCenter=true&width=350&lines=I+transform+with+pressure;I'm+hands+on+with+effort" alt="Quotes"/>                ║
+║                                                                  ║
+╚══════════════════════════════════════════════════════════════════╝
+</pre>
+</div>
+
 <div align="center">
   <code>END_TRANSMISSION // © 2024</code>
-
