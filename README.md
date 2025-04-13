@@ -33,7 +33,7 @@
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=andykofman&theme=react-dark&hide_border=true&bg_color=000000&line=006600&point=008800&color=00aa00&title_color=008800&area=true" alt="Activity Graph" />
 </div>
 
-              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 <div align="center">
   <code>END_TRANSMISSION // © 2024</code>
