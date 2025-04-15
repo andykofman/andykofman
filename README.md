@@ -30,15 +30,13 @@
   
   <img width="390" src="https://github-readme-stats.vercel.app/api/top-langs/?username=andykofman&layout=compact&theme=dark&border_radius=0&hide_border=true&title_color=00ff00&text_color=00ff00&icon_color=00ff00" alt="Top Languages" />
 
-  <img src="https://github-readme-activity-graph.cyclic.app/graph?username=andykofman&theme=react-dark&hide_border=true&bg_color=000000&line=006600&point=008800&color=00aa00&title_color=008800&area=true" alt="Activity Graph" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=andykofman&theme=github-dark&hide_border=true&bg_color=000000&line=00ff00&point=00ff00&color=00ff00&title_color=00ff00&area=true" alt="Activity Graph" />
 </div>
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-
-
 <div align="center">
-  <img src="https://profile-counter.glitch.me/{andykofman}/count.svg" alt="Visitor Count" style="filter: hue-rotate(90deg) brightness(0.8);" />
+  <img src="https://profile-counter.glitch.me/andykofman/count.svg" alt="Visitor Count" style="filter: hue-rotate(90deg) brightness(0.8);" />
 </div>
 
 
