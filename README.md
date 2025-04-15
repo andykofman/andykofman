@@ -26,7 +26,7 @@
 <div align="center">
   <img width="390" src="https://streak-stats.demolab.com/?user=andykofman&theme=dark&border_radius=0&ring=00ff00&fire=00ff00&currStreakNum=00ff00&currStreakLabel=00ff00&sideNums=00ff00&dates=00ff00" alt="GitHub Streak" />
 
-  <img width="390" src="https://github-readme-stats.vercel.app/api?username=andykofman&theme=dark&border_radius=0&hide_border=true&title_color=00ff00&text_color=00ff00&icon_color=00ff00&show_icons=true&show_icons=true&rank_icon=github&include_all_commits=true&count_private=true" alt="GitHub Stats" />
+  <img width="390" src="https://github-readme-stats.vercel.app/api?username=andykofman&theme=dark&border_radius=0&hide_border=true&title_color=00ff00&text_color=00ff00&icon_color=00ff00" alt="GitHub Stats" />
   
   <img width="390" src="https://github-readme-stats.vercel.app/api/top-langs/?username=andykofman&layout=compact&theme=dark&border_radius=0&hide_border=true&title_color=00ff00&text_color=00ff00&icon_color=00ff00" alt="Top Languages" />
 
