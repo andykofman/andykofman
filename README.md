@@ -24,7 +24,7 @@
 <h2 align="center">SYSTEM METRICS</h2>
 
 <div align="center">
-  <img width="390" src="https://streak-stats.demolab.com/?user=andykofman&theme=dark&border_radius=0&ring=00ff00&fire=00ff00&currStreakNum=00ff00&currStreakLabel=00ff00&sideNums=00ff00&dates=00ff00" alt="GitHub Streak" />
+  <img width="390" src="https://github-readme-streak-stats.herokuapp.com/?user=andykofman&theme=dark&hide_border=true&ring=00ff00&fire=00ff00&currStreakNum=00ff00&currStreakLabel=00ff00&sideNums=00ff00&dates=00ff00" alt="GitHub Streak" />
 
   <img width="390" src="https://github-readme-stats.vercel.app/api?username=andykofman&theme=dark&border_radius=0&hide_border=true&title_color=00ff00&text_color=00ff00&icon_color=00ff00" alt="GitHub Stats" />
   
