@@ -24,8 +24,8 @@
 <h2 align="center">SYSTEM METRICS</h2>
 
 <div align="center">
-  <img width="390" src="[![GitHub Streak](https://streak-stats.demolab.com/?user=andykofman)](https://git.io/streak-stats)" alt="GitHub Streak" />
-
+<!--   <img width="390" src="[![GitHub Streak](https://streak-stats.demolab.com/?user=andykofman)](https://git.io/streak-stats)" alt="GitHub Streak" />
+ -->
   <img width="390" src="https://github-readme-stats.vercel.app/api?username=andykofman&theme=dark&border_radius=0&hide_border=true&rank_icon=github&title_color=00ff00&text_color=00ff00&icon_color=00ff00" alt="GitHub Stats" />
   
   <img width="390" src="https://github-readme-stats.vercel.app/api/top-langs/?username=andykofman&layout=compact&theme=dark&border_radius=0&hide_border=true&title_color=00ff00&text_color=00ff00&icon_color=00ff00" alt="Top Languages" />
