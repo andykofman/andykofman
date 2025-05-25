@@ -17,7 +17,7 @@
   architecture and system strategy.
   </h2>
   <div style="display: flex; justify-content: center; gap: 10px; align-items: center;">
-    <a href="https://docs.google.com/document/d/1AVvBLyk8UQfJmNU0lni3l5Xgr2_kLDk9xLOfCRzRvlc/edit?usp=drive_link" target="_blank">
+    <a href="https://drive.google.com/your-cv-link" target="_blank">
       <img src="https://img.shields.io/badge/CV-FF0000?style=for-the-badge&logo=adobe-acrobat-reader&logoColor=white" alt="CV" />
     </a>
     <a href="https://www.linkedin.com/in/ahmedaliin/" target="_blank">
@@ -27,7 +27,16 @@
       <img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
     </a>
   </div>
-
+  </pre>
+  <a href="https://drive.google.com/your-cv-link" target="_blank">
+    <img src="https://img.shields.io/badge/CV-FF0000?style=for-the-badge&logo=adobe-acrobat-reader&logoColor=white" alt="CV" />
+  </a>
+  <a href="https://www.linkedin.com/in/ahmedaliin/" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+  </a>
+  <a href="mailto:ali.a@aucegypt.edu">
+    <img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
+  </a>
 </div>
 
 
