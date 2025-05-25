@@ -5,6 +5,32 @@
   <code>AI ENGINEER | SYSTEM ARCHITECT</code>
 </div>
 
+<div align="center">
+  <h2>BRIEF</h2>
+</div>
+
+<div align="center">
+  <pre style="color:rgb(244, 247, 244);">
+  <h2>
+  Electronics Engineering Graduate exploring Deep Learning, Cybersecurity,
+  and Python automation. I thrive at the intersection of AI 
+  architecture and system strategy.
+  </h2>
+  <div style="display: flex; justify-content: center; gap: 10px; align-items: center;">
+    <a href="https://docs.google.com/document/d/1AVvBLyk8UQfJmNU0lni3l5Xgr2_kLDk9xLOfCRzRvlc/edit?usp=drive_link" target="_blank">
+      <img src="https://img.shields.io/badge/CV-FF0000?style=for-the-badge&logo=adobe-acrobat-reader&logoColor=white" alt="CV" />
+    </a>
+    <a href="https://www.linkedin.com/in/ahmedaliin/" target="_blank">
+      <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+    </a>
+    <a href="mailto:ali.a@aucegypt.edu">
+      <img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
+    </a>
+  </div>
+
+</div>
+
+
 <p align="center">
   <i>"Perfection is achieved not when there is nothing more to add, but when there is nothing left to take away."</i>
 </p>
