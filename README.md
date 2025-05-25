@@ -25,8 +25,8 @@
     </a>
     <a href="mailto:ali.a@aucegypt.edu">
       <img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
-    </a> -->
-  </div>
+    </a>
+  </div> -->
   </pre>
   <a href="https://drive.google.com/your-cv-link" target="_blank">
     <img src="https://img.shields.io/badge/CV-FF0000?style=for-the-badge&logo=adobe-acrobat-reader&logoColor=white" alt="CV" />
