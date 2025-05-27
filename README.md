@@ -4,11 +4,11 @@
 <div align="center">
   <code>AI ENGINEER | SYSTEM ARCHITECT</code>
 </div>
-
+<!-- 
 <div align="center">
   <h2>BRIEF</h2>
 </div>
-
+<!-- 
 <div align="center">
   <pre style="color:rgb(244, 247, 244);">
   <h2>
