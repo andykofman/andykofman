@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Terminal Interface</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #ccc;
+      font-family: 'Courier Prime', monospace;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    #terminal {
+      background: #000;
+      border: 2px solid #00ff00;
+      padding: 1.5rem;
+      width: 90%;
+      max-width: 800px;
+      color: #00ff00;
+      font-family: 'Courier Prime', monospace;
+      font-size: 1.1rem;
+      box-shadow: 0 0 20px #0f0;
+      height: 400px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    #terminal-output {
+      flex-grow: 1;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      text-align: left;
+    }
+
+    #terminal-input-line {
+      display: flex;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+
+    #prompt {
+      user-select: none;
+      margin-right: 0.5rem;
+    }
+
+    #terminal-input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #00ff00;
+      font-family: 'Courier Prime', monospace;
+      font-size: 1.1rem;
+      flex-grow: 1;
+    }
+
+    #terminal-input::selection {
+      background: #00ff00;
+      color: #000;
+    }
+
+    @keyframes blink-caret {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+
+    .typing {
+      overflow: hidden;
+      white-space: nowrap;
+      animation: typing 2s steps(40, end);
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+  </style>
+</head>
+<body>
+  <div id="terminal" aria-label="Interactive command terminal" role="region" tabindex="0">
+    <div id="terminal-output">
+      <div class="typing">> Available commands:</div>
+      <div class="typing">> - profile    : View detailed profile</div>
+      <div class="typing">> - projects   : Explore projects</div>
+      <div class="typing">> - contact    : Contact information</div>
+      <div class="typing">> - neural     : Up coming projects in Neural interface</div>
+      <div class="typing">> Type a command to proceed...</div>
+    </div>
+    <div id="terminal-input-line">
+      <span id="prompt">&gt;</span>
+      <input id="terminal-input" autocomplete="off" autofocus aria-label="Terminal command input" />
+    </div>
+  </div>
+
+  <script>
+    const terminalInput = document.getElementById('terminal-input');
+    const terminalOutput = document.getElementById('terminal-output');
+    const terminal = document.getElementById('terminal');
+
+    // Keep terminal scrolled to bottom
+    function scrollTerminalToBottom() {
+      terminal.scrollTop = terminal.scrollHeight;
+    }
+
+    // Command handling
+    const commands = {
+      profile: () => window.location.href = 'profile.html',
+      projects: () => window.location.href = 'projects.html',
+      contact: () => window.location.href = 'contact.html',
+      neural: () => window.location.href = 'neural.html',
+      help: () => {
+        const helpText = `Available commands:
+profile    : View detailed profile
+projects   : Explore projects
+contact    : Contact information
+neural     : Neural interface
+help       : Show this help message
+clear      : Clear terminal output`;
+        return helpText;
+      },
+      clear: () => {
+        terminalOutput.innerHTML = '';
+        return null;
+      }
+    };
+
+    // Handle command input
+    terminalInput.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        const input = terminalInput.value.trim().toLowerCase();
+        if (!input) return;
+
+        // Echo command
+        const echo = document.createElement('div');
+        echo.textContent = '> ' + input;
+        terminalOutput.appendChild(echo);
+
+        // Handle command
+        if (commands[input]) {
+          const result = commands[input]();
+          if (result) {
+            const response = document.createElement('div');
+            response.textContent = result;
+            terminalOutput.appendChild(response);
+          }
+        } else {
+          const response = document.createElement('div');
+          response.textContent = `Command not found: ${input}. Type 'help' for available commands.`;
+          terminalOutput.appendChild(response);
+        }
+
+        terminalInput.value = '';
+        scrollTerminalToBottom();
+      }
+    });
+
+    // Focus input on click anywhere in terminal
+    terminal.addEventListener('click', () => {
+      terminalInput.focus();
+    });
+
+    // Initial scroll
+    scrollTerminalToBottom();
+  </script>
+</body>
+</html> 

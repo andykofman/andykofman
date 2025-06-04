@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects | Ahmed Ali</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #ccc;
+      font-family: 'Courier Prime', monospace;
+      margin: 0;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+      color: #00ff00;
+      text-shadow: 0 0 10px #0f0;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
+      border: 1px solid #00ff00;
+      padding: 1.5rem;
+      border-radius: 5px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #00ff00, transparent);
+      animation: scan 2s linear infinite;
+    }
+
+    @keyframes scan {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+    }
+
+    .project-title {
+      color: #00ff00;
+      margin: 0 0 1rem 0;
+      font-size: 1.4rem;
+    }
+
+    .project-tech {
+      color: #0f0;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-description {
+      color: #ccc;
+      margin-bottom: 1rem;
+    }
+
+    .project-link {
+      color: #00ff00;
+      text-decoration: none;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border: 1px solid #00ff00;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    .project-link:hover {
+      background: #00ff00;
+      color: #000;
+    }
+
+    .back-btn {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      color: #00ff00;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border: 1px solid #00ff00;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background: #00ff00;
+      color: #000;
+    }
+
+    .status-indicator {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+    }
+
+    .status-active {
+      background: #00ff00;
+      box-shadow: 0 0 10px #0f0;
+    }
+
+    .status-complete {
+      background: #0f0;
+      box-shadow: 0 0 10px #0f0;
+    }
+
+    .status-dev {
+      background: #ff0;
+      box-shadow: 0 0 10px #ff0;
+    }
+  </style>
+</head>
+<body>
+  <a href="terminal.html" class="back-btn">&lt; Back to Terminal</a>
+  
+  <div class="container">
+    <div class="header">
+      <h1>PROJECTS_ARCHIVE</h1>
+      <p>Active Development & Research Initiatives</p>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-card">
+        <span class="status-indicator status-active"></span>
+        <h2 class="project-title">Vehicle-Vision: Homecoming</h2>
+        <div class="project-tech">C++ | ESP32 | Arduino</div>
+        <p class="project-description">
+          RC car that never gets lost! 
+          When WiFi drops, it doesn't just stop - it remembers its journey and autonomously navigates back to home base.
+          With video streaming and responsive web control, features also include onboard camera, precise motor control, and seamless WebSocket-based navigation.
+        </p>
+        <a href="https://github.com/andykofman/Wireless-Wifi-Bluetooth-RC-car-controlled-by-ESP32-Camera.git" class="project-link" target="_blank">View Details →</a>
+      </div>
+
+      <div class="project-card">
+        <span class="status-indicator status-complete"></span>
+        <h2 class="project-title">AI Strategy Simulator</h2>
+        <div class="project-tech">Python | PyQt | TensorFlow</div>
+        <p class="project-description">
+          Interactive platform for simulating and testing AI strategies in various
+          scenarios. Features real-time visualization and strategy optimization.
+        </p>
+        <a href="#" class="project-link">View Details →</a>
+      </div>
+
+      <div class="project-card">
+        <span class="status-indicator status-dev"></span>
+        <h2 class="project-title">Circuit-X Capacitance</h2>
+        <div class="project-tech">Python | Numba | OpenGL</div>
+        <p class="project-description">
+          High-performance electrostatic solver for parasitic extraction in
+          2D-circuits. Utilizes Numba acceleration for real-time analysis. Supported by GUI for great visualization
+        </p>
+        <a href="https://github.com/andykofman/A-2-D-Capacitance-Solver-using-Finite-Difference-Method-with-GUI" class="project-link" target="_blank">View Details →</a>
+      </div>
+
+      <div class="project-card">
+        <span class="status-indicator status-active"></span>
+        <h2 class="project-title">Cyber Defense Matrix</h2>
+        <div class="project-tech">Python | Scapy | Machine Learning</div>
+        <p class="project-description">
+          Network security analysis tool with ML-powered threat detection.
+          Implements custom protocol analysis and behavioral pattern recognition.
+        </p>
+        <a href="#" class="project-link">View Details →</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html> 

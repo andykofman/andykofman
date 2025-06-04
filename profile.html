@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ahmed Ali</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #ccc;
+      font-family: 'Courier Prime', monospace;
+      text-align: center;
+      padding: 2rem;
+      user-select: none;
+    }
+    h2 {
+      color: #00ff00;
+    }
+    code {
+      font-size: 1.2rem;
+      color: #00ff00;
+    }
+    pre {
+      white-space: pre-wrap;
+      font-size: 1.1rem;
+      color: #eee;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .quote-box {
+      border: 1px solid #00ff00;
+      padding: 1rem;
+      margin-top: 2rem;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    footer {
+      margin-top: 2rem;
+      color: #666;
+    }
+    @keyframes matrix-rain {
+      0% { text-shadow: 0 0 0px #0f0, 0 0 1px #0f0, 0 0 2px #0f0; }
+      50% { text-shadow: 0 0 2px #0f0, 0 0 3px #0f0, 0 0 4px #0f0; }
+      100% { text-shadow: 0 0 0px #0f0, 0 0 1px #0f0, 0 0 2px #0f0; }
+    }
+    .cyber-console {
+      color: #00ff00;
+      background: linear-gradient(180deg, #000000, rgb(5, 17, 5));
+      text-shadow: 0 0 2px #0f0;
+      animation: matrix-rain 2s infinite;
+      border: 1px solid #00ff00;
+      box-shadow: 0 0 10px #00ff00, inset 0 0 10px #00ff00;
+      padding: 1rem;
+      font-family: 'Courier New', monospace;
+      max-width: 700px;
+      margin: 2rem auto;
+      text-align: left;
+      min-height: 180px;
+      overflow-y: auto;
+    }
+    .line-type {
+      overflow: hidden;
+      white-space: nowrap;
+      animation: typing 3s steps(60, end);
+    }
+
+    /* Command-like links */
+    .cmd-links {
+      margin: 2rem 0;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .cmd-link {
+      font-family: 'Courier Prime', monospace;
+      color: #00ff00;
+      font-size: 1.3rem;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      text-shadow: 0 0 5px #0f0;
+      padding: 0.4rem 0.8rem;
+      transition: all 0.3s ease;
+      position: relative;
+      outline: none;
+    }
+    .cmd-link:hover,
+    .cmd-link:focus {
+      text-shadow:
+        0 0 8px #0f0,
+        0 0 15px #0f0,
+        0 0 20px #0f0;
+      transform: scale(1.1);
+    }
+    .cmd-link::after {
+      content: ' ▌';
+      animation: blink-caret 1s steps(1) infinite;
+      color: #00ff00;
+      position: absolute;
+      right: -15px;
+      top: 0;
+    }
+    @keyframes blink-caret {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+
+    /* New modern card styles */
+    .profile-card {
+      background: rgba(0, 20, 0, 0.3);
+      border: 1px solid #00ff00;
+      border-radius: 8px;
+      padding: 2rem;
+      margin: 2rem auto;
+      max-width: 800px;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
+      backdrop-filter: blur(5px);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .skill-item {
+      background: rgba(0, 40, 0, 0.2);
+      border: 1px solid #00ff00;
+      padding: 1rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    .skill-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #00ff00;
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      margin: 2rem 0;
+      position: relative;
+      width: 50%;
+      padding: 0 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .timeline-item.fade-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+
+    .system-status {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: rgba(0, 255, 0, 0.1);
+      border: 1px solid #00ff00;
+      border-radius: 4px;
+      margin: 1rem 0;
+    }
+
+    .status-indicator {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: #00ff00;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      animation: pulse 2s infinite;
+    }
+
+    .back-btn {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      color: #00ff00;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border: 1px solid #00ff00;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background: #00ff00;
+      color: #000;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.4); }
+      70% { box-shadow: 0 0 0 10px rgba(0, 255, 0, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); }
+    }
+  </style>
+</head>
+<body>
+  <a href="terminal.html" class="back-btn">&lt; Back to Terminal</a>
+
+  <div>
+    <img src="https://readme-typing-svg.demolab.com?font=Courier+Prime&size=28&duration=2800&pause=2000&color=777777&center=true&vCenter=true&width=940&lines=SYSTEM.INITIALIZE()+//+AHMED+ALI" alt="Typing SVG" />
+  </div>
+
+  <code>AI ENGINEER | SYSTEM ARCHITECT</code>
+
+  <h2>BRIEF</h2>
+  <pre>
+
+  </pre>
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  <!-- Command-like links -->
+  <div class="cmd-links" role="navigation" aria-label="Quick links">
+    <button class="cmd-link" onclick="openCV()">> open_cv()</button>
+    <button class="cmd-link" onclick="connectLinkedIn()">> connect_linkedin()</button>
+    <button class="cmd-link" onclick="sendMail()">> send_mail()</button>
+  </div>
+
+  <!-- Remove terminal div and add new sections -->
+  <div class="profile-card">
+    <div class="system-status">
+      <span class="status-indicator"></span>
+      SYSTEM STATUS: ONLINE
+    </div>
+    
+    <h2>SYSTEM PROFILE</h2>
+    <pre>
+Electronics Engineering Graduate exploring Deep Learning, Cybersecurity,
+and Python automation. I thrive at the intersection of AI 
+architecture and system strategy.
+    </pre>
+
+    <h2>SKILLS MATRIX</h2>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <h3>AI/ML</h3>
+        <pre>Deep Learning
+Neural Networks
+Reinforcement Learning
+Computer Vision</pre>
+      </div>
+      <div class="skill-item">
+        <h3>Development</h3>
+        <pre>Python
+C/C++
+System Architecture
+Automation</pre>
+      </div>
+      <div class="skill-item">
+        <h3>Engineering</h3>
+        <pre>Circuit Design
+Signal Processing
+Control Systems
+Hardware Integration</pre>
+      </div>
+    </div>
+
+    <h2>EXPERIENCE TIMELINE</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>AI Research Engineer</h3>
+        <pre>2025 - Present
+Developing AI solutions for
+complex system optimization</pre>
+      </div>
+      <div class="timeline-item">
+        <h3>Electronics Engineering</h3>
+        <pre>2019 - 2025
+Bachelor's Degree
+The American University in Cairo</pre>
+      </div>
+    </div>
+  </div>
+
+  <p><i>"Perfection is achieved not when there is nothing more to add, but when there is nothing left to take away."</i></p>
+
+  <div class="quote-box">
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=15&duration=3000&pause=1000&color=00FF00&center=true&vCenter=true&width=350&lines=I+transform+with+pressure;I'm+hands+on+with+effort" alt="Quotes"/>
+  </div>
+
+  <footer>
+    <code>END_TRANSMISSION // © 2024</code>
+  </footer>
+
+  <script>
+    // Functions for command-like links
+    function openCV() {
+      window.open('https://docs.google.com/document/d/1AVvBLyk8UQfJmNU0lni3l5Xgr2_kLDk9xLOfCRzRvlc/edit?usp=drive_link', '_blank');
+    }
+    function connectLinkedIn() {
+      window.open('https://www.linkedin.com/in/ahmedaliin/', '_blank');
+    }
+    function sendMail() {
+      window.location.href = 'mailto:ali.a@aucegypt.edu';
+    }
+
+    // Timeline fade-in animation
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+          // Once the element is visible, we don't need to observe it anymore
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observe all timeline items
+    document.querySelectorAll('.timeline-item').forEach(item => {
+      observer.observe(item);
+    });
+  </script>
+</body>
+</html>

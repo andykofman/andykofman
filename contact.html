@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | Ahmed Ali</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #ccc;
+      font-family: 'Courier Prime', monospace;
+      margin: 0;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+      color: #00ff00;
+      text-shadow: 0 0 10px #0f0;
+    }
+
+    .back-btn {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      color: #00ff00;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border: 1px solid #00ff00;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background: #00ff00;
+      color: #000;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .contact-card {
+      background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
+      border: 1px solid #00ff00;
+      padding: 1.5rem;
+      border-radius: 5px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #00ff00, transparent);
+      animation: scan 2s linear infinite;
+    }
+
+    @keyframes scan {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+    }
+
+    .contact-title {
+      color: #00ff00;
+      margin: 0 0 1rem 0;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .contact-info {
+      color: #ccc;
+      margin-bottom: 1rem;
+    }
+
+    .contact-link {
+      color: #00ff00;
+      text-decoration: none;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border: 1px solid #00ff00;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    .contact-link:hover {
+      background: #00ff00;
+      color: #000;
+    }
+
+    .icon {
+      font-size: 1.2rem;
+    }
+
+    .matrix-rain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.1;
+    }
+
+    @keyframes matrix-rain {
+      0% { text-shadow: 0 0 0px #0f0, 0 0 1px #0f0, 0 0 2px #0f0; }
+      50% { text-shadow: 0 0 2px #0f0, 0 0 3px #0f0, 0 0 4px #0f0; }
+      100% { text-shadow: 0 0 0px #0f0, 0 0 1px #0f0, 0 0 2px #0f0; }
+    }
+
+    .status-indicator {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #00ff00;
+      box-shadow: 0 0 10px #0f0;
+      margin-right: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="matrix-rain"></div>
+  <a href="terminal.html" class="back-btn">&lt; Back to Terminal</a>
+  
+  <div class="container">
+    <div class="header">
+      <h1>CONTACT_PROTOCOL</h1>
+      <p>Establish Secure Connection</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h2 class="contact-title">
+          <span class="status-indicator"></span>
+          Email Protocol
+        </h2>
+        <div class="contact-info">
+          <p>Primary: ali.a@aucegypt.edu</p>
+          <p>Status: Active</p>
+          <p>Response Time: < 24h</p>
+        </div>
+        <a href="mailto:ali.a@aucegypt.edu" class="contact-link">Initiate Email →</a>
+      </div>
+
+      <div class="contact-card">
+        <h2 class="contact-title">
+          <span class="status-indicator"></span>
+          Professional Network
+        </h2>
+        <div class="contact-info">
+          <p>Platform: LinkedIn</p>
+          <p>Status: Active</p>
+          <p>Connection: Open</p>
+        </div>
+        <a href="https://linkedin.com/in/ahmedaliin/" target="_blank" class="contact-link">Connect →</a>
+      </div>
+
+      <div class="contact-card">
+        <h2 class="contact-title">
+          <span class="status-indicator"></span>
+          Documentation
+        </h2>
+        <div class="contact-info">
+          <p>Type: CV/Resume</p>
+          <p>Status: Updated</p>
+          <p>Format: PDF</p>
+        </div>
+        <a href="https://docs.google.com/document/d/1AVvBLyk8UQfJmNU0lni3l5Xgr2_kLDk9xLOfCRzRvlc/edit?usp=drive_link" target="_blank" class="contact-link">View CV →</a>
+      </div>
+
+      <div class="contact-card">
+        <h2 class="contact-title">
+          <span class="status-indicator"></span>
+          Location Data
+        </h2>
+        <div class="contact-info">
+          <p>Region: Cairo, Egypt</p>
+          <p>Timezone: GMT+2</p>
+          <p>Availability: Remote/On-site</p>
+        </div>
+        <a href="#" class="contact-link">View Map →</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Matrix rain effect
+    const matrixRain = document.querySelector('.matrix-rain');
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()';
+    const columns = Math.floor(window.innerWidth / 20);
+    
+    for (let i = 0; i < columns; i++) {
+      const column = document.createElement('div');
+      column.style.position = 'absolute';
+      column.style.left = (i * 20) + 'px';
+      column.style.top = Math.random() * -100 + 'px';
+      column.style.color = '#0f0';
+      column.style.fontSize = '14px';
+      column.style.opacity = Math.random() * 0.5;
+      column.style.animation = `matrix-rain ${2 + Math.random() * 3}s linear infinite`;
+      column.textContent = chars[Math.floor(Math.random() * chars.length)];
+      matrixRain.appendChild(column);
+    }
+  </script>
+</body>
+</html> 

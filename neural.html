@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Neural Interface | Ahmed Ali</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #ccc;
+      font-family: 'Courier Prime', monospace;
+      margin: 0;
+      padding: 2rem;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+      color: #00ff00;
+      text-shadow: 0 0 10px #0f0;
+    }
+
+    .back-btn {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      color: #00ff00;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border: 1px solid #00ff00;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+      z-index: 100;
+    }
+
+    .back-btn:hover {
+      background: #00ff00;
+      color: #000;
+    }
+
+    .neural-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .neural-card {
+      background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
+      border: 1px solid #00ff00;
+      padding: 1.5rem;
+      border-radius: 5px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .neural-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;  
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #00ff00, transparent);
+      animation: scan 2s linear infinite;
+    }
+
+    @keyframes scan {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .neural-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+    }
+
+    .neural-title {
+      color: #00ff00;
+      margin: 0 0 1rem 0;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .neural-content {
+      color: #ccc;
+      margin-bottom: 1rem;
+    }
+
+    .neural-visualization {
+      width: 100%;
+      height: 200px;
+      background: #0a0a0a;
+      border: 1px solid #00ff00;
+      margin: 1rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .neural-node {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #00ff00;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #0f0;
+    }
+
+    .neural-connection {
+      position: absolute;
+      height: 1px;
+      background: #00ff00;
+      transform-origin: left center;
+      opacity: 0.3;
+    }
+
+    .status-indicator {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #00ff00;
+      box-shadow: 0 0 10px #0f0;
+      margin-right: 0.5rem;
+    }
+
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.5); opacity: 0.5; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .matrix-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.1;
+    }
+
+    .matrix-column {
+      position: absolute;
+      top: -100%;
+      color: #0f0;
+      font-size: 14px;
+      animation: matrix-fall linear infinite;
+    }
+
+    @keyframes matrix-fall {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(100vh); }
+    }
+  </style>
+</head>
+<body>
+  <div class="matrix-bg"></div>
+  <a href="terminal.html" class="back-btn">&lt; Back to Terminal</a>
+  
+  <div class="container">
+    <div class="header">
+      <h1>NEURAL_INTERFACE</h1>
+      <p>AI Architecture & Deep Learning Systems</p>
+    </div>
+
+    <div class="neural-grid">
+      <div class="neural-card">
+        <h2 class="neural-title">
+          <span class="status-indicator pulse"></span>
+          Deep Learning Core
+        </h2>
+        <div class="neural-content">
+          <p>Advanced neural network architectures for complex problem-solving.</p>
+          <ul>
+            <li>CNN for Computer Vision</li>
+            <li>RNN for Sequence Analysis</li>
+            <li>Transformer Models</li>
+          </ul>
+        </div>
+        <div class="neural-visualization" id="dl-visualization"></div>
+      </div>
+
+      <div class="neural-card">
+        <h2 class="neural-title">
+          <span class="status-indicator pulse"></span>
+          Reinforcement Learning
+        </h2>
+        <div class="neural-content">
+          <p>Dynamic decision-making systems with adaptive learning capabilities.</p>
+          <ul>
+            <li>Q-Learning</li>
+            <li>Policy Gradient Methods</li>
+            <li>Multi-Agent Systems</li>
+          </ul>
+        </div>
+        <div class="neural-visualization" id="rl-visualization"></div>
+      </div>
+
+      <div class="neural-card">
+        <h2 class="neural-title">
+          <span class="status-indicator pulse"></span>
+          Natural Language Processing
+        </h2>
+        <div class="neural-content">
+          <p>Advanced language understanding and generation systems.</p>
+          <ul>
+            <li>BERT & Transformers</li>
+            <li>Text Classification</li>
+            <li>Language Generation</li>
+          </ul>
+        </div>
+        <div class="neural-visualization" id="nlp-visualization"></div>
+      </div>
+<!--
+      <div class="neural-card">
+        <h2 class="neural-title">
+          <span class="status-indicator pulse"></span>
+          Computer Vision
+        </h2>
+        <div class="neural-content">
+          <p>Advanced image processing and recognition systems.</p>
+          <ul>
+            <li>Object Detection</li>
+            <li>Image Segmentation</li>
+            <li>Feature Extraction</li>
+          </ul>
+        </div>
+        <div class="neural-visualization" id="cv-visualization"></div>
+      </div>
+    </div>
+  </div>
+-->
+  <script>
+    // Matrix background effect
+    const matrixBg = document.querySelector('.matrix-bg');
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()';
+    const columns = Math.floor(window.innerWidth / 20);
+    
+    for (let i = 0; i < columns; i++) {
+      const column = document.createElement('div');
+      column.className = 'matrix-column';
+      column.style.left = (i * 20) + 'px';
+      column.style.animationDuration = (2 + Math.random() * 3) + 's';
+      column.style.animationDelay = Math.random() * 2 + 's';
+      column.textContent = chars[Math.floor(Math.random() * chars.length)];
+      matrixBg.appendChild(column);
+    }
+
+    // Neural network visualization
+    function createNeuralNetwork(containerId, layers = [4, 6, 4]) {
+      const container = document.getElementById(containerId);
+      const width = container.offsetWidth;
+      const height = container.offsetHeight;
+      const nodes = [];
+      const connections = [];
+
+      // Create nodes
+      layers.forEach((layerSize, layerIndex) => {
+        const layerNodes = [];
+        const layerWidth = width / (layers.length + 1);
+        const x = layerWidth * (layerIndex + 1);
+        
+        for (let i = 0; i < layerSize; i++) {
+          const y = (height / (layerSize + 1)) * (i + 1);
+          const node = document.createElement('div');
+          node.className = 'neural-node';
+          node.style.left = (x - 5) + 'px';
+          node.style.top = (y - 5) + 'px';
+          container.appendChild(node);
+          layerNodes.push({ x, y });
+        }
+        nodes.push(layerNodes);
+      });
+
+      // Create connections
+      for (let i = 0; i < nodes.length - 1; i++) {
+        const currentLayer = nodes[i];
+        const nextLayer = nodes[i + 1];
+        
+        currentLayer.forEach(node1 => {
+          nextLayer.forEach(node2 => {
+            const connection = document.createElement('div');
+            connection.className = 'neural-connection';
+            
+            const dx = node2.x - node1.x;
+            const dy = node2.y - node1.y;
+            const length = Math.sqrt(dx * dx + dy * dy);
+            const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+            
+            connection.style.width = length + 'px';
+            connection.style.left = node1.x + 'px';
+            connection.style.top = node1.y + 'px';
+            connection.style.transform = `rotate(${angle}deg)`;
+            
+            container.appendChild(connection);
+            connections.push(connection);
+          });
+        });
+      }
+
+      // Animate connections
+      connections.forEach(conn => {
+        setInterval(() => {
+          conn.style.opacity = Math.random() * 0.5 + 0.1;
+        }, 1000);
+      });
+    }
+
+    // Initialize visualizations
+    createNeuralNetwork('dl-visualization', [3, 5, 4, 3]);
+    createNeuralNetwork('rl-visualization', [4, 6, 4]);
+    createNeuralNetwork('nlp-visualization', [5, 7, 5]);
+    createNeuralNetwork('cv-visualization', [4, 6, 6, 4]);
+  </script>
+</body>
+</html> 
