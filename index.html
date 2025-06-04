@@ -2,131 +2,193 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ahmed Ali</title>
   <style>
     body {
+      margin: 0;
       background-color: #000;
       color: #ccc;
       font-family: 'Courier Prime', monospace;
-      text-align: center;
-      padding: 2rem;
     }
-    h2 {
-      color: #00ff00;
-    }
-    code {
-      font-size: 1.2rem;
-      color: #00ff00;
-    }
-    pre {
-      white-space: pre-wrap;
-      font-size: 1.1rem;
-      color: #eee;
-    }
-    .badges img {
-      margin: 0.5rem;
-    }
-    .quote-box {
-      border: 1px solid #00ff00;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
-    footer {
-      margin-top: 2rem;
-      color: #666;
-    }
-    @keyframes matrix-rain {
-      0% { text-shadow: 0 0 0px #0f0, 0 0 1px #0f0, 0 0 2px #0f0; }
-      50% { text-shadow: 0 0 2px #0f0, 0 0 3px #0f0, 0 0 4px #0f0; }
-      100% { text-shadow: 0 0 0px #0f0, 0 0 1px #0f0, 0 0 2px #0f0; }
-    }
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-    .cyber-console {
-      color: #00ff00;
-      background: linear-gradient(180deg, #000000, rgb(5, 17, 5));
-      text-shadow: 0 0 2px #0f0;
-      animation: matrix-rain 2s infinite;
-      border: 1px solid #00ff00;
-      box-shadow: 0 0 10px #00ff00, inset 0 0 10px #00ff00;
-      padding: 1rem;
-      font-family: 'Courier New', monospace;
-    }
-    .line-type {
+
+    /* === LANDING OVERLAY === */
+    #landing-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #000;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
       overflow: hidden;
-      white-space: nowrap;
-      animation: typing 3s steps(60, end);
+      transition: opacity 1s ease;
+    }
+
+    .landing-content {
+      z-index: 10;
+      text-align: center;
+      color: white;
+    }
+
+    .landing-icon {
+      width: 60px;
+      height: 60px;
+      border: 2px solid #00ff00;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin: 0 auto 1rem;
+      color: #00ff00;
+      text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+      animation: iconPulse 2s infinite;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .landing-icon:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes iconPulse {
+      0% { 
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+        text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+      }
+      50% { 
+        transform: scale(1.1);
+        box-shadow: 0 0 30px rgba(0, 255, 0, 0.4);
+        text-shadow: 0 0 15px rgba(0, 255, 0, 0.7);
+      }
+      100% { 
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+        text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+      }
+    }
+
+    .landing-icon::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #00ff00, transparent);
+      animation: scan 2s linear infinite;
+    }
+
+    @keyframes scan {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(200%); }
+    }
+
+    .landing-subtext {
+      color: #aaa;
+      max-width: 400px;
+      margin: 1rem auto 2rem;
+    }
+
+    .start-btn {
+      padding: 0.6rem 1.5rem;
+      border-radius: 30px;
+      border: none;
+      background: white;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .start-btn:hover {
+      transform: scale(1.05);
+    }
+
+    /* === BACKGROUND CODE SNIPPETS === */
+    .code-snippet {
+      position: absolute;
+      color: #00ffcc;
+      font-family: monospace;
+      font-size: 0.85rem;
+      opacity: 0;
+      animation: floatCode 6s linear forwards;
+    }
+
+    @keyframes floatCode {
+      0% { opacity: 0; transform: translateY(20px); }
+      10% { opacity: 0.8; }
+      90% { opacity: 0.8; }
+      100% { opacity: 0; transform: translateY(-20px); }
+    }
+
+    /* === MAIN CONTENT === */
+    .main-content {
+      padding: 2rem;
+      text-align: center;
+      display: none;
     }
   </style>
 </head>
 <body>
 
-  <div>
-    <img src="https://readme-typing-svg.demolab.com?font=Courier+Prime&size=28&duration=2800&pause=2000&color=777777&center=true&vCenter=true&width=940&lines=SYSTEM.INITIALIZE()+//+AHMED+ALI" alt="Typing SVG" />
+  <!-- Landing overlay -->
+  <div id="landing-overlay">
+    <div class="landing-content">
+      <div class="landing-icon" onclick="startApp()">⏵</div>
+      <h1>Move faster with Ahmed</h1>
+      <p class="landing-subtext">It is clean and simple.</p>
+    </div>
   </div>
 
-  <code>AI ENGINEER | SYSTEM ARCHITECT</code>
+  <!-- Placeholder for background code -->
+  <div id="code-bg"></div>
 
-  <h2>BRIEF</h2>
-  <pre>
-Electronics Engineering Graduate exploring Deep Learning, Cybersecurity,
-and Python automation. I thrive at the intersection of AI 
-architecture and system strategy.
-  </pre>
-
-  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-  <div align="center">
-    <pre class="cyber-console">
-<div style="text-align: center;">[INITIALIZING_NEURAL_INTERFACE...]</div>
-
-   
-
-
-
-   SYSTEM_FOCUS      :: Deep Learning | Cyber Security | AI    
-   CORE_OPERATIONS   :: AI Architecture | Strategic Systems    
-   DEBUG_EXPERTISE   :: Python | QA Automation | PyQt | React  
-   CONTACT_PROTOCOL  :: Ali.a@aucegypt.edu                     
-
-
-
-
-
-[CONNECTION_SECURE] [SIGNAL_STRONG]
-
-
-
-[ACCESS GRANTED]
-    </pre>
+  <!-- Main content container (hidden initially) -->
+  <div class="main-content" id="main" style="display: none;">
+    <!-- Content will be loaded via redirect -->
   </div>
 
-  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  <script>
+    function startApp() {
+      const overlay = document.getElementById('landing-overlay');
+      overlay.style.opacity = 0;
+      setTimeout(() => {
+        window.location.href = 'terminal.html';
+      }, 1000);
+    }
 
-  <div class="badges">
-    <a href="https://docs.google.com/document/d/1AVvBLyk8UQfJmNU0lni3l5Xgr2_kLDk9xLOfCRzRvlc/edit?usp=drive_link" target="_blank">
-      <img src="https://img.shields.io/badge/CV-FF0000?style=for-the-badge&logo=adobe-acrobat-reader&logoColor=white" alt="CV" />
-    </a>
-    <a href="https://www.linkedin.com/in/ahmedaliin/" target="_blank">
-      <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-    </a>
-    <a href="mailto:ali.a@aucegypt.edu">
-      <img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
-    </a>
-  </div>
+    // Random code lines for background
+    const codeLines = [
+      'const probs = [0.40, 0.21, 0.39];',
+      'if (timeline) { run(); }',
+      'guard let codex else { return }',
+      'for (let i of data) { // ... }',
+      'runSequence();',
+      'let delay = baseTime * 0.1 + offset;',
+      'const probs = [0.14, 0.23, 0.63];'
+    ];
 
-  <p><i>"Perfection is achieved not when there is nothing more to add, but when there is nothing left to take away."</i></p>
+    function createCodeSnippet() {
+      const snippet = document.createElement('div');
+      snippet.className = 'code-snippet';
+      snippet.textContent = codeLines[Math.floor(Math.random() * codeLines.length)];
+      snippet.style.left = Math.random() * 100 + 'vw';
+      snippet.style.top = Math.random() * 100 + 'vh';
+      document.getElementById('landing-overlay').appendChild(snippet);
 
-  <div class="quote-box">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=15&duration=3000&pause=1000&color=00FF00&center=true&vCenter=true&width=350&lines=I+transform+with+pressure;I'm+hands+on+with+effort" alt="Quotes"/>
-  </div>
+      setTimeout(() => snippet.remove(), 6000);
+    }
 
-  <footer>
-    <code>END_TRANSMISSION // © 2024</code>
-  </footer>
-
+    setInterval(createCodeSnippet, 700);
+  </script>
 </body>
 </html>
