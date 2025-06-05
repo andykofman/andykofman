@@ -78,6 +78,34 @@
       animation: typing 2s steps(40, end);
     }
 
+    .command-link {
+      color: #00ff00;
+      text-decoration: none;
+      cursor: pointer;
+      display: block;
+      padding: 0.2rem 0.5rem;
+      margin: 0.2rem 0;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .command-link:hover {
+      background: rgba(0, 255, 0, 0.1);
+      text-shadow: 0 0 8px #0f0;
+    }
+
+    .command-line {
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    .command-prefix {
+      user-select: none;
+      margin-right: 0.5rem;
+    }
+
     @keyframes typing {
       from { width: 0 }
       to { width: 100% }
@@ -88,11 +116,23 @@
   <div id="terminal" aria-label="Interactive command terminal" role="region" tabindex="0">
     <div id="terminal-output">
       <div class="typing">> Available commands:</div>
-      <div class="typing">> - profile    : View detailed profile</div>
-      <div class="typing">> - projects   : Explore projects</div>
-      <div class="typing">> - contact    : Contact information</div>
-      <div class="typing">> - neural     : Up coming projects in Neural interface</div>
-      <div class="typing">> Type a command to proceed...</div>
+      <div class="typing command-line">
+        <span class="command-prefix">> -</span>
+        <span class="command-link" onclick="executeCommand('profile')">profile    : View detailed profile</span>
+      </div>
+      <div class="typing command-line">
+        <span class="command-prefix">> -</span>
+        <span class="command-link" onclick="executeCommand('projects')">projects   : Explore projects</span>
+      </div>
+      <div class="typing command-line">
+        <span class="command-prefix">> -</span>
+        <span class="command-link" onclick="executeCommand('contact')">contact    : Contact information</span>
+      </div>
+      <div class="typing command-line">
+        <span class="command-prefix">> -</span>
+        <span class="command-link" onclick="executeCommand('neural')">neural     : Up coming projects in Neural interface</span>
+      </div>
+      <div class="typing">> Type a command to proceed... or just click it! </div>
     </div>
     <div id="terminal-input-line">
       <span id="prompt">&gt;</span>
@@ -132,33 +172,38 @@ clear      : Clear terminal output`;
       }
     };
 
-    // Handle command input
+    // Function to execute commands (used by both click and type)
+    function executeCommand(input) {
+      if (!input) return;
+
+      // Echo command
+      const echo = document.createElement('div');
+      echo.textContent = '> ' + input;
+      terminalOutput.appendChild(echo);
+
+      // Handle command
+      if (commands[input]) {
+        const result = commands[input]();
+        if (result) {
+          const response = document.createElement('div');
+          response.textContent = result;
+          terminalOutput.appendChild(response);
+        }
+      } else {
+        const response = document.createElement('div');
+        response.textContent = `Command not found: ${input}. Type 'help' for available commands.`;
+        terminalOutput.appendChild(response);
+      }
+
+      scrollTerminalToBottom();
+    }
+
+    // Handle command input from typing
     terminalInput.addEventListener('keydown', function(event) {
       if (event.key === 'Enter') {
         const input = terminalInput.value.trim().toLowerCase();
-        if (!input) return;
-
-        // Echo command
-        const echo = document.createElement('div');
-        echo.textContent = '> ' + input;
-        terminalOutput.appendChild(echo);
-
-        // Handle command
-        if (commands[input]) {
-          const result = commands[input]();
-          if (result) {
-            const response = document.createElement('div');
-            response.textContent = result;
-            terminalOutput.appendChild(response);
-          }
-        } else {
-          const response = document.createElement('div');
-          response.textContent = `Command not found: ${input}. Type 'help' for available commands.`;
-          terminalOutput.appendChild(response);
-        }
-
+        executeCommand(input);
         terminalInput.value = '';
-        scrollTerminalToBottom();
       }
     });
 
