@@ -150,6 +150,52 @@
       terminal.scrollTop = terminal.scrollHeight;
     }
 
+    // Security enhancements
+    const security = {
+      commandHistory: [],
+      lastCommandTime: Date.now(),
+      rateLimit: {
+        maxCommands: 10,
+        timeWindow: 10000, // 10 seconds
+        waitTime: 2000 // 2 seconds
+      },
+      session: {
+        startTime: Date.now(),
+        timeout: 30 * 60 * 1000, // 30 minutes
+        lastActivity: Date.now()
+      }
+    };
+
+    // Rate limiting check
+    function checkRateLimit() {
+      const now = Date.now();
+      security.commandHistory = security.commandHistory.filter(time => 
+        time > now - security.rateLimit.timeWindow
+      );
+      
+      if (security.commandHistory.length >= security.rateLimit.maxCommands) {
+        const response = document.createElement('div');
+        response.textContent = `Rate limit exceeded. Please wait ${security.rateLimit.waitTime/1000} seconds.`;
+        response.style.color = '#ff0000';
+        terminalOutput.appendChild(response);
+        return false;
+      }
+      
+      security.commandHistory.push(now);
+      return true;
+    }
+
+    // Session management
+    function checkSession() {
+      const now = Date.now();
+      if (now - security.session.lastActivity > security.session.timeout) {
+        window.location.href = 'index.html';
+        return false;
+      }
+      security.session.lastActivity = now;
+      return true;
+    }
+
     // Command handling
     const commands = {
       profile: () => window.location.href = 'profile.html',
@@ -172,18 +218,29 @@ clear      : Clear terminal output`;
       }
     };
 
+    // Function to sanitize input
+    function sanitizeInput(input) {
+      return input.replace(/[<>]/g, '').trim().toLowerCase();
+    }
+
     // Function to execute commands (used by both click and type)
     function executeCommand(input) {
       if (!input) return;
+      
+      // Security checks
+      if (!checkSession() || !checkRateLimit()) return;
+
+      // Sanitize input
+      const sanitizedInput = sanitizeInput(input);
 
       // Echo command
       const echo = document.createElement('div');
-      echo.textContent = '> ' + input;
+      echo.textContent = '> ' + sanitizedInput;
       terminalOutput.appendChild(echo);
 
       // Handle command
-      if (commands[input]) {
-        const result = commands[input]();
+      if (commands[sanitizedInput]) {
+        const result = commands[sanitizedInput]();
         if (result) {
           const response = document.createElement('div');
           response.textContent = result;
@@ -191,7 +248,7 @@ clear      : Clear terminal output`;
         }
       } else {
         const response = document.createElement('div');
-        response.textContent = `Command not found: ${input}. Type 'help' for available commands.`;
+        response.textContent = `Command not found: ${sanitizedInput}. Type 'help' for available commands.`;
         terminalOutput.appendChild(response);
       }
 
