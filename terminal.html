@@ -128,10 +128,6 @@
         <span class="command-prefix">> -</span>
         <span class="command-link" onclick="executeCommand('contact')">contact    : Contact information</span>
       </div>
-      <div class="typing command-line">
-        <span class="command-prefix">> -</span>
-        <span class="command-link" onclick="executeCommand('neural')">neural     : Up coming projects topics</span>
-      </div>
       <div class="typing">> Type a command to proceed... or just click it! </div>
     </div>
     <div id="terminal-input-line">
@@ -201,13 +197,11 @@
       profile: () => window.location.href = 'profile.html',
       projects: () => window.location.href = 'projects.html',
       contact: () => window.location.href = 'contact.html',
-      neural: () => window.location.href = 'neural.html',
       help: () => {
         const helpText = `Available commands:
 profile    : View detailed profile
 projects   : Explore projects
 contact    : Contact information
-neural     : Neural interface
 help       : Show this help message
 clear      : Clear terminal output`;
         return helpText;
@@ -216,6 +210,11 @@ clear      : Clear terminal output`;
         terminalOutput.innerHTML = '';
         return null;
       }
+    };
+
+    // Hidden commands not shown in help
+    const hiddenCommands = {
+      'sudo neural': () => window.location.href = 'neural.html'
     };
 
     // Function to sanitize input
@@ -238,8 +237,12 @@ clear      : Clear terminal output`;
       echo.textContent = '> ' + sanitizedInput;
       terminalOutput.appendChild(echo);
 
-      // Handle command
-      if (commands[sanitizedInput]) {
+      // Check for hidden commands first
+      if (hiddenCommands[sanitizedInput]) {
+        hiddenCommands[sanitizedInput]();
+      }
+      // Then check regular commands
+      else if (commands[sanitizedInput]) {
         const result = commands[sanitizedInput]();
         if (result) {
           const response = document.createElement('div');
